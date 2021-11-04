@@ -14,22 +14,58 @@ const images = [
 ];
 
 
-const galleryNodeContainer = document.querySelector('.gallery');
-galleryNodeContainer.style.display = 'flex';
-galleryNodeContainer.style.justifyContent = 'space-between';
+const makeGalleryFromArray = arrayOfObjects => {
+  const oneImage = arrayOfObjects
+    .map(imageEl => `<li><img alt=${imageEl.alt} src=${imageEl.url} width=300 ></li>`)
+    .join('');
+  
+  const galleryNodeContainer = document.querySelector('.gallery');
+  galleryNodeContainer.style.display = 'flex';
+  galleryNodeContainer.style.justifyContent = 'space-between';
+  galleryNodeContainer.style.listStyle = 'none';
+
+  galleryNodeContainer.insertAdjacentHTML('afterbegin', oneImage);
+}
+
+makeGalleryFromArray(images)
 
 
-const makeImageNode = options => {
-  return options.map(option => {
-    const imageEl = document.createElement('img');
-    imageEl.src = option.url;
-    imageEl.alt = option.alt;
-    imageEl.style.width = '200px';
+// =====================================================
 
-    return imageEl;
-  })
-};
+// const galleryNodeContainer = document.querySelector('.gallery');
+// galleryNodeContainer.style.display = 'flex';
+// galleryNodeContainer.style.justifyContent = 'space-between';
+// galleryNodeContainer.style.listStyle = 'none';
 
-const elements = makeImageNode(images);
-galleryNodeContainer.append(...elements);
+
+// const makeImageGallery = images
+//   .map(image => `<li><img alt=${image.alt} src=${image.url} width=300 ></li>`)
+//   .join('');
+// galleryNodeContainer.insertAdjacentHTML('afterbegin', makeImageGallery);
+
+// =====================================================
+
+// const makeImageNode = options => {
+//   return options.map(option => {
+//     const galleryNodeContainer = document.querySelector('.gallery');
+//     galleryNodeContainer.style.display = 'flex';
+//     galleryNodeContainer.style.justifyContent = 'space-between';  
+
+//     const makeListEl = document.createElement('li');
+
+//     const imageEl = document.createElement('img');
+//     imageEl.src = option.url;
+//     imageEl.alt = option.alt;
+//     imageEl.style.width = '200px';
+
+//     makeListEl.append(imageEl)
+    
+//     return galleryNodeContainer.append(makeListEl)   
+//   })
+// };
+
+// makeImageNode(images)
+
+
+
 
