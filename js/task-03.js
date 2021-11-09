@@ -13,22 +13,23 @@ const images = [
   },
 ];
 
-
-const makeGalleryFromArray = arrayOfObjects => {
+const makeGalleryFromArray = (arrayOfObjects) => {
   const oneImage = arrayOfObjects
-    .map(imageEl => `<li><img alt=${imageEl.alt} src=${imageEl.url} width=300 ></li>`)
+    .map(
+      (imageEl) =>
+        `<li><img alt = "${imageEl.alt}" src= "${imageEl.url}" width=300 ></li>`
+    )
     .join('');
-  
+
   const galleryNodeContainer = document.querySelector('.gallery');
   galleryNodeContainer.style.display = 'flex';
   galleryNodeContainer.style.justifyContent = 'space-between';
   galleryNodeContainer.style.listStyle = 'none';
 
   galleryNodeContainer.insertAdjacentHTML('afterbegin', oneImage);
-}
+};
 
-makeGalleryFromArray(images)
-
+makeGalleryFromArray(images);
 
 // =====================================================
 
@@ -36,7 +37,6 @@ makeGalleryFromArray(images)
 // galleryNodeContainer.style.display = 'flex';
 // galleryNodeContainer.style.justifyContent = 'space-between';
 // galleryNodeContainer.style.listStyle = 'none';
-
 
 // const makeImageGallery = images
 //   .map(image => `<li><img alt=${image.alt} src=${image.url} width=300 ></li>`)
@@ -49,7 +49,7 @@ makeGalleryFromArray(images)
 //   return options.map(option => {
 //     const galleryNodeContainer = document.querySelector('.gallery');
 //     galleryNodeContainer.style.display = 'flex';
-//     galleryNodeContainer.style.justifyContent = 'space-between';  
+//     galleryNodeContainer.style.justifyContent = 'space-between';
 
 //     const makeListEl = document.createElement('li');
 
@@ -59,13 +59,9 @@ makeGalleryFromArray(images)
 //     imageEl.style.width = '200px';
 
 //     makeListEl.append(imageEl)
-    
-//     return galleryNodeContainer.append(makeListEl)   
+
+//     return galleryNodeContainer.append(makeListEl)
 //   })
 // };
 
 // makeImageNode(images)
-
-
-
-
