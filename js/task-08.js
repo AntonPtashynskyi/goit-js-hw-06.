@@ -7,14 +7,13 @@ function handelFormSubmit(event) {
   const password = event.currentTarget.elements.password.value;
   const formData = { mail, password };
 
-  if ((mail || password) === '') {
+  if ((mail && password) === '') {
     alert('All fields should be filled!');
   } else {
     loginForm.reset();
     return console.log(formData);
   }
-};
-
+}
 
 // We can use also FormaData method
 
