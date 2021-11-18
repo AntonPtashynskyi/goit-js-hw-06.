@@ -7,7 +7,7 @@ createBtn.addEventListener('click', createBoxes);
 destroyBtn.addEventListener('click', destroyBoxes);
 
 function createBoxes() {
-  destroyBoxes();
+  // destroyBoxes();
 
   for (let i = 0; i < input.value; i += 1) {
     const container = document.createElement('div');
@@ -17,6 +17,7 @@ function createBoxes() {
     container.style.height = `${size}px`;
     container.style.backgroundColor = getRandomHexColor();
 
+    console.log(size);
     box.insertAdjacentElement('beforeend', container);
   }
 }
